@@ -1,22 +1,39 @@
-import React, { useState } from "react"
+import { useContext, useRef } from "react"
+import { GlobalContext } from "../../Context/GlobalContext"
 import CompareIcon from "../../Assets/CompareIcon"
 import ComparerList from "./ComparerList"
 import Filter from "./Filter"
 
 const ComparerContainer = () => {
-  const [toggle, setToggle] = useState("--closed")
+  const {
+    sidebars: { comparer },
+    openComparer,
+    closeSidebars,
+  } = useContext(GlobalContext)
 
-  const toggleOpen = () =>
-    toggle === "" ? setToggle("--closed") : setToggle("")
+  const reference = useRef({
+    current: { width: window.innerWidth, isSmall: false },
+  })
+
+  window.onresize = () => {
+    const { current } = reference
+    current.width = window.innerWidth
+    if (!current.isSmall)
+      if (current.width < 700) {
+        closeSidebars()
+        current.isSmall = true
+      }
+    if (current.width > 700) current.isSmall = false
+  }
 
   return (
-    <div className={`comparer-container${toggle}`}>
+    <div className={`comparer-container${comparer}`}>
       <button
         title='Compare to other cars'
-        className={`comparer-button${toggle}`}
-        onClick={toggleOpen}
+        className={`comparer-button${comparer}`}
+        onClick={openComparer}
       >
-        {toggle === "" ? "+" : <CompareIcon />}
+        {!comparer ? "+" : <CompareIcon />}
       </button>
       <Filter />
       <div className='comparer-list'>

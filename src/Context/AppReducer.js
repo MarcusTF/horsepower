@@ -5,7 +5,7 @@ export default (state, action) => {
     case "CALCULATE": {
       let modifier
       switch (state.drivetrainState.selected) {
-        case "FWD":
+        case "FWD": {
           switch (state.transmissionState.selected) {
             case "trad-auto":
               modifier = 0.88
@@ -21,7 +21,8 @@ export default (state, action) => {
               break
           }
           break
-        case "RWD":
+        }
+        case "RWD": {
           switch (state.transmissionState.selected) {
             case "trad-auto":
               modifier = 0.83
@@ -37,7 +38,8 @@ export default (state, action) => {
               break
           }
           break
-        case "AWD":
+        }
+        case "AWD": {
           switch (state.transmissionState.selected) {
             case "trad-auto":
               modifier = 0.78
@@ -52,10 +54,11 @@ export default (state, action) => {
               break
           }
           break
-
-        default:
+        }
+        default: {
           modifier = 0.91
           break
+        }
       }
       switch (payload.type) {
         case "crank":
@@ -90,19 +93,38 @@ export default (state, action) => {
     case "LAST_TOUCHED": {
       return { ...state, lastTouched: { field: payload.field } }
     }
+    case "COMPARER": {
+      return {
+        ...state,
+        sidebarState: {
+          options:
+            window.innerWidth < 700 ? "--closed" : state.sidebarState.options,
+          comparer: !state.sidebarState.comparer ? "--closed" : "",
+        },
+      }
+    }
+    case "OPTIONS": {
+      console.log(state.sidebarState.comparer)
+      console.log(state.sidebarState.options)
+      return {
+        ...state,
+        sidebarState: {
+          comparer:
+            window.innerWidth < 700 ? "--closed" : state.sidebarState.comparer,
+          options: !state.sidebarState.options ? "--closed" : "",
+        },
+      }
+    }
+    case "CLOSE_SIDEBARS": {
+      return {
+        ...state,
+        sidebarState: {
+          comparer: "--closed",
+          options: "--closed",
+        },
+      }
+    }
     default:
       return state
   }
 }
-
-/**
- * FWD
- *    Auto
- *    C=>W * 0.88 W=>C * (100/88)
- *    Manual
- *    C=>W * 0.93 W=>C * (100/93)
- *    Mod Auto
- *    C=>W * 0.91 W=>C * (100/91)
- *
- *
- */

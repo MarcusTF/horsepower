@@ -141,7 +141,7 @@ html {
   position: absolute;
   transition: 500ms;
   width: 20%;
-  min-width: 200px;
+  min-width: 300px;
   height: 100%;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.568);
   background-color: var(--main-color);
@@ -240,7 +240,7 @@ form {
   position: absolute;
   transition: 500ms;
   width: 20%;
-  min-width: 200px;
+  min-width: 300px;
   height: 100%;
   background-color: var(--main-color);
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.568);

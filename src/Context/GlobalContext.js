@@ -103,11 +103,17 @@ const initialState = {
   lastTouched: {
     field: "crank",
   },
+  sidebarState: {
+    comparer: "--closed",
+    options: "--closed",
+  },
   horsepowerState: {
     crank: 0,
     wheel: 0,
   },
-  filterState: { value: "" },
+  filterState: {
+    value: "",
+  },
   drivetrainState: {
     selected: "FWD",
   },
@@ -152,6 +158,15 @@ export const GlobalProvider = ({ children }) => {
       payload: { selection },
     })
   }
+  function openComparer() {
+    dispatch({ type: "COMPARER" })
+  }
+  function openOptions() {
+    dispatch({ type: "OPTIONS" })
+  }
+  function closeSidebars() {
+    dispatch({ type: "CLOSE_SIDEBARS" })
+  }
 
   return (
     <GlobalContext.Provider
@@ -162,11 +177,15 @@ export const GlobalProvider = ({ children }) => {
         drivetrain: state.drivetrainState,
         transmission: state.transmissionState,
         lastTouched: state.lastTouched,
+        sidebars: state.sidebarState,
         calculator,
         setFilter,
         setDrivetrain,
         setTransmission,
         setLastTouched,
+        openComparer,
+        openOptions,
+        closeSidebars,
       }}
     >
       {children}

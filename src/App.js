@@ -1,18 +1,18 @@
-import './App.css'
+import "./App.css"
 
-import InputContainer from './components/InputContainer'
-import ComparerContainer from './components/Comparer/ComparerContainer'
-import OptionsContainer from './components/OptionsContainer/OptionsContainer'
+import InputContainer from "./components/InputContainer"
+import ComparerContainer from "./components/Comparer/ComparerContainer"
+import OptionsContainer from "./components/OptionsContainer/OptionsContainer"
 
-import { GlobalProvider } from './Context/GlobalContext'
+import { GlobalProvider  } from "./Context/GlobalContext"
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <GlobalProvider>
-        <main className="main">
-          <InputContainer type="crank" />
-          <InputContainer type="wheels" />
+        <main className='main'>
+          <InputContainer type='crank' />
+          <InputContainer type='wheels' />
         </main>
         <OptionsContainer />
         <ComparerContainer />

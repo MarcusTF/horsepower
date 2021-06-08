@@ -1,20 +1,23 @@
-import { useState } from "react"
+import { useContext } from "react"
+import { GlobalContext } from "../../Context/GlobalContext"
+
 import GearIcon from "../../Assets/GearIcon"
 import OptionsList from "./OptionsList"
 
 const OptionsContainer = () => {
-  const [toggle, setToggle] = useState("--closed")
-  const toggleOpen = () =>
-    toggle === "" ? setToggle("--closed") : setToggle("")
+  const {
+    sidebars: { options },
+    openOptions,
+  } = useContext(GlobalContext)
 
   return (
-    <div className={`options-container${toggle}`}>
+    <div className={`options-container${options}`}>
       <button
         title='Options'
-        onClick={toggleOpen}
-        className={`options-button${toggle}`}
+        onClick={openOptions}
+        className={`options-button${options}`}
       >
-        {!toggle ? "+" : <GearIcon />}
+        {!options ? "+" : <GearIcon />}
       </button>
       <OptionsList />
     </div>
