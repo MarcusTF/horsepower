@@ -17,11 +17,11 @@ const InputContainer = ({ type }) => {
           transition: "1.5s",
         }
       : {
-          backgroundColor: `hsl(20,${saturation}%,${lightness}%)`,
+          backgroundColor: `hsl(560,${saturation}%,${lightness}%)`,
           transition: "1.5s",
         }
   return (
-    <div className={`${type}-container`} style={style}>
+    <div className={`${type}-container input-container`} style={style}>
       <Input type={type} />
     </div>
   )
