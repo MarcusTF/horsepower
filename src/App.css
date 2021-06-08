@@ -1,38 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.App,
+.main,
+#root,
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .App {
-  text-align: center;
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input::-webkit-inner-spin-button,
+.input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.horsepower-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.input {
+  width: 100%;
+  font-size: 5rem;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.main {
+  display: flex;
+}
+
+.crank-container {
+  transition: background-color 0.5s;
+  display: grid;
+  place-items: center;
+  flex: auto;
+  /* background-color: rgb(199, 175, 175); */
+}
+
+.wheels-container {
+  transition: background-color 0.5s;
+  display: grid;
+  place-items: center;
+  flex: auto;
+  /* background-color: rgb(169, 180, 212); */
+}
+
+.filter {
+  border-radius: 10px;
+  outline: none;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  width: 100%;
+}
+
+.options-button--closed {
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: solid black 2px;
+  position: absolute;
+  right: -45px;
+  transition: 500ms;
+  transform: rotate(-3turn);
+}
+.options-button {
+  font-weight: bold;
+  transition: 500ms;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+  color: red;
+  border: solid rgb(255, 0, 0) 2px;
+  position: absolute;
+  right: -45px;
+}
+.options-container {
+  padding: 0.5rem;
+  left: 0;
+  position: absolute;
+  transition: 500ms;
+  width: 20%;
+  min-width: 200px;
+  height: 100%;
+  background-color: rgb(142, 152, 173);
+}
+.options-container--closed {
+  padding: 0.5rem;
+  left: 0;
+  position: absolute;
+  transition: 300ms ease-in-out;
+  transform: translateX(-100%);
+  width: 20%;
+  min-width: 200px;
+  height: 100%;
+  background-color: rgb(142, 152, 173);
+}
+
+.options-form {
+
+}
+.options  {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: .3rem;
+  padding: 1rem;
+  background-color: white;
+}
+.options legend {
+  font-weight: bolder;
+  font-size: 1.1rem;
+  margin: 0;
+  border-radius: .3rem;
+  padding: .3rem .7rem ;
+  background-color: white;
+  padding-bottom: 0;
+}
+.options input {
+  margin: .3rem;
+}
+.option {
+  display: flex;
+  align-items: center;
+}
+
+.comparer-button {
+  font-weight: bold;
+  transition: 500ms;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  transform: rotate(-45deg);
+  color: red;
+  border: solid rgb(255, 0, 0) 2px;
+  position: absolute;
+  left: -45px;
+}
+
+.comparer-button--closed {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: solid black 2px;
+  position: absolute;
+  left: -45px;
+  transition: 500ms;
+  transform: rotate(calc(3turn + -90deg));
+}
+
+.comparer-container {
+  padding: 0.5rem;
+  right: 0;
+  position: absolute;
+  transition: 300ms;
+  width: 20%;
+  min-width: 200px;
+  height: 100%;
+  background-color: rgb(142, 152, 173);
+}
+.comparer-container--closed {
+  padding: 0.5rem;
+  right: 0;
+  position: absolute;
+  transition: 300ms;
+  width: 20%;
+  min-width: 200px;
+  height: 100%;
+  background-color: rgb(142, 152, 173);
+  transform: translateX(95%);
+}
+
+.comparer-list::-webkit-scrollbar {
+  border-color: transparent;
+  width: 10px;
+}
+.comparer-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.432);
+}
+.comparer-list {
+  height: 95%;
+  overflow-y: overlay;
+}
+.comparer-car {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: space-between;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+  .comparer-button--closed {
+    top: 90%;
   }
 }

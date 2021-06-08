@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import InputContainer from './components/InputContainer'
+import ComparerContainer from './components/Comparer/ComparerContainer'
+import OptionsContainer from './components/OptionsContainer/OptionsContainer'
+
+import { GlobalProvider } from './Context/GlobalContext'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalProvider>
+        <main className="main">
+          <InputContainer type="crank" />
+          <InputContainer type="wheels" />
+        </main>
+        <OptionsContainer />
+        <ComparerContainer />
+      </GlobalProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
