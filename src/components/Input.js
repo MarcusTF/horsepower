@@ -25,7 +25,7 @@ const Input = ({ type }) => {
         className={`input ${type}`}
         value={Math.floor(horsepowerValue)}
       />
-      <h4>horsepower @ {type}</h4>
+      <h4 style={{ padding: "0 1rem" }}>{`horsepower @ ${type}`}</h4>
     </div>
   )
 }

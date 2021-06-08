@@ -41,7 +41,7 @@ html {
 
 .input {
   width: 100%;
-  font-size: 5rem;
+  font-size: 15vw;
   text-align: center;
   background-color: transparent;
   border: none;
@@ -57,9 +57,11 @@ html {
   display: grid;
   place-items: center;
   flex: auto;
+  text-align: center;
 }
 
 .wheels-container {
+  text-align: center;
   transition: background-color 0.5s;
   display: grid;
   place-items: center;
@@ -115,7 +117,6 @@ html {
   justify-content: space-evenly;
 }
 
-
 .options-button {
   top: 10px;
   font-weight: bold;
@@ -140,8 +141,9 @@ html {
   left: 0;
   position: absolute;
   transition: 500ms;
-  width: 20%;
-  min-width: 300px;
+  width: 70%;
+  max-width: 300px;
+  min-width: 200px;
   height: 100%;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.568);
   background-color: var(--main-color);
@@ -153,8 +155,9 @@ html {
   position: absolute;
   transition: 300ms ease-in-out;
   transform: translateX(-100%);
-  width: 20%;
-  min-width: 200px;
+  width: 70%;
+  max-width: 200px;
+  min-width: 100px;
   height: 100%;
   background-color: var(--main-color);
 }
@@ -239,8 +242,9 @@ form {
   right: 0;
   position: absolute;
   transition: 500ms;
-  width: 20%;
-  min-width: 300px;
+  width: 70%;
+  max-width: 300px;
+  min-width: 200px;
   height: 100%;
   background-color: var(--main-color);
   box-shadow: -5px 0 10px rgba(0, 0, 0, 0.568);
@@ -251,8 +255,9 @@ form {
   right: 0;
   position: absolute;
   transition: 300ms;
-  width: 20%;
-  min-width: 200px;
+  width: 70%;
+  max-width: 200px;
+  min-width: 100px;
   height: 100%;
   background-color: var(--main-color);
   transform: translateX(100%);
@@ -303,3 +308,8 @@ form {
     top: 90%;
   }
 }
+/* @media (max-width: 400px) {
+  .input {
+    font-size: 4rem;
+  }
+} */
