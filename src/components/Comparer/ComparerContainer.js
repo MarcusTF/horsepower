@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import CompareIcon from "../../Assets/CompareIcon"
 import ComparerList from "./ComparerList"
 import Filter from "./Filter"
 
@@ -15,7 +16,7 @@ const ComparerContainer = () => {
         className={`comparer-button${toggle}`}
         onClick={toggleOpen}
       >
-        {toggle === "" ? "+" : "V"}
+        {toggle === "" ? "+" : <CompareIcon />}
       </button>
       <Filter />
       <div className='comparer-list'>

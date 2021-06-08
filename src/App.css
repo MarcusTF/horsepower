@@ -67,10 +67,11 @@ html {
 }
 
 .filter:focus {
-  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.685);
+  background-color: white;
 }
 
 .filter {
+  background-color: rgb(54, 54, 54);
   border-radius: 10px;
   outline: none;
   padding: 0.5rem;
@@ -96,36 +97,24 @@ html {
 }
 
 .options-info-container {
+  overflow-y: overlay;
   display: flex;
   height: 100%;
-  justify-content:space-between;
+  justify-content: space-between;
   flex-flow: column nowrap;
-}
-
-.info button {
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-  display: grid;
-  font-weight: bold;
-  font-size:1.3rem;
-  place-items: center;
-  height: 30px;
-  width: 30px;
-  border-radius: 50px;
-  color:  rgb(105, 115, 255);
-  border: solid rgb(105, 115, 255) 2px;
-  position: absolute;
-  transition: 400ms;
-  z-index: 2;
-  position: absolute;
-  bottom: 25px;
-  right: 10px;
 }
 
 .info {
   position: relative;
   transition: 300ms;
 }
+
+.about-me {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 .options-button {
   top: 10px;
@@ -176,12 +165,12 @@ form {
   border-radius: 1rem;
 }
 
-.options  {
-  margin: 1rem 0;
+.options {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   border: none;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   padding: 1rem;
   background-color: white;
 }
@@ -192,15 +181,15 @@ form {
   text-align: center;
   font-size: 1.1rem;
   margin: 0;
-  margin-bottom: -.5rem;
-  border-radius: .3rem;
+  margin-bottom: -0.5rem;
+  border-radius: 0.3rem;
   width: 100%;
   background-color: white;
   padding-bottom: 0;
 }
 
 .options input {
-  margin: .3rem;
+  margin: 0.3rem;
 }
 
 .option {
@@ -242,7 +231,7 @@ form {
   position: absolute;
   left: -45px;
   transition: 300ms;
-  transform: rotate(calc(3turn + -90deg));
+  transform: rotate(calc(3turn));
 }
 
 .comparer-container {
@@ -269,14 +258,19 @@ form {
   transform: translateX(100%);
 }
 
-.comparer-list::-webkit-scrollbar {
+*::-webkit-scrollbar {
   border-color: transparent;
   width: 5px;
 }
 
-.comparer-list::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.432);
+  background-color: rgba(138, 138, 138, 0.678);
+  background-blend-mode: overlay;
+}
+
+.wheels-container {
+  border-left: 3px white solid;
 }
 
 .comparer-list {

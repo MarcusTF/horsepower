@@ -1,50 +1,31 @@
-import { useState } from "react"
-const Info = () => {
-  const [toggle, setToggle] = useState(true)
-  const style = {
-    transform: toggle ? "translateY(130%)" : "translateY(0%)",
-    transition: "300ms",
-    transformOrigin: "bottom",
-  }
+import Github from "../../Assets/Github"
+import LinkIcon from "../../Assets/LinkIcon"
+import Linkedin from "../../Assets/Linkedin"
 
+const Info = () => {
   return (
     <>
       <div className='info'>
-        <button
-          title='Information'
-          className='info-button'
-          onClick={() => {
-            setToggle(!toggle)
-          }}
-        >
-          i
-        </button>
-        <div className='options' style={style}>
-          <h4>Disclaimer:</h4>
-          <p>
-            These numbers serve only as a rough estimation, and may not be
-            accurate.
-          </p>
-          <br />
-          <hr />
-          <br />
-          <h4>About Me:</h4>
-          <h5>
-            <a href='https://linkedin.com/in/marcustfernandez'>LinkedIn</a>
-          </h5>
-          <h5>
-            <a href='https://github.com/marcustf'>GitHub</a>
-          </h5>
-          <h5>
-            <a href='https://marcustf.com'>Personal Site</a>
-          </h5>
-          <br />
+        <div className='options'>
+          ya
+          <h4 style={{ textAlign: "center" }}>About Me:</h4>
+          <div className='about-me'>
+            <a title='LinkedIn' href='https://linkedin.com/in/marcustfernandez'>
+              <Linkedin />
+            </a>
+            <a title='GitHub' href='https://github.com/marcustf'>
+              <Github />
+            </a>
+            <a title='Personal Site' href='https://marcustf.com'>
+              <LinkIcon />
+            </a>
+          </div>
           <hr />
           <br />
           <h4>Special Thanks:</h4>
           <h5>
             <a href='https://www.mk5cortinaestate.co.uk/calculator4.php'>
-              mk5cortinaestate and Frozen Mist
+              mk5cortinaestate.co.uk
             </a>
           </h5>
           <h5>
