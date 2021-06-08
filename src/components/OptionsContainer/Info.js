@@ -7,7 +7,6 @@ const Info = () => {
     <>
       <div className='info'>
         <div className='options'>
-          ya
           <h4 style={{ textAlign: "center" }}>About Me:</h4>
           <div className='about-me'>
             <a title='LinkedIn' href='https://linkedin.com/in/marcustfernandez'>
