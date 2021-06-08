@@ -10,10 +10,11 @@ const Filter = () => {
 
   return (
     <input
-      type="text"
-      name="filter"
-      className="filter"
-      placeholder="Start typing to filter..."
+      autocomplete='off'
+      type='text'
+      name='filter'
+      className='filter'
+      placeholder='Start typing to filter...'
       onChange={inputHandler}
       value={filter.value}
     />

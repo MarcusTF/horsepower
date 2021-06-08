@@ -4,6 +4,10 @@
   box-sizing: inherit;
 }
 
+:root {
+  --main-color: #161616;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -53,7 +57,6 @@ html {
   display: grid;
   place-items: center;
   flex: auto;
-  /* background-color: rgb(199, 175, 175); */
 }
 
 .wheels-container {
@@ -61,7 +64,10 @@ html {
   display: grid;
   place-items: center;
   flex: auto;
-  /* background-color: rgb(169, 180, 212); */
+}
+
+.filter:focus {
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.685);
 }
 
 .filter {
@@ -74,6 +80,7 @@ html {
 }
 
 .options-button--closed {
+  top: 10px;
   background-color: rgb(255, 255, 255);
   cursor: pointer;
   display: grid;
@@ -84,10 +91,44 @@ html {
   border: solid black 2px;
   position: absolute;
   right: -45px;
-  transition: 500ms;
+  transition: 400ms;
   transform: rotate(-3turn);
 }
+
+.options-info-container {
+  display: flex;
+  height: 100%;
+  justify-content:space-between;
+  flex-flow: column nowrap;
+}
+
+.info button {
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: grid;
+  font-weight: bold;
+  font-size:1.3rem;
+  place-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  color:  rgb(105, 115, 255);
+  border: solid rgb(105, 115, 255) 2px;
+  position: absolute;
+  transition: 400ms;
+  z-index: 2;
+  position: absolute;
+  bottom: 25px;
+  right: 10px;
+}
+
+.info {
+  position: relative;
+  transition: 300ms;
+}
+
 .options-button {
+  top: 10px;
   font-weight: bold;
   transition: 500ms;
   background-color: rgb(255, 255, 255);
@@ -104,6 +145,7 @@ html {
   position: absolute;
   right: -45px;
 }
+
 .options-container {
   padding: 0.5rem;
   left: 0;
@@ -112,8 +154,10 @@ html {
   width: 20%;
   min-width: 200px;
   height: 100%;
-  background-color: rgb(142, 152, 173);
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.568);
+  background-color: var(--main-color);
 }
+
 .options-container--closed {
   padding: 0.5rem;
   left: 0;
@@ -123,12 +167,15 @@ html {
   width: 20%;
   min-width: 200px;
   height: 100%;
-  background-color: rgb(142, 152, 173);
+  background-color: var(--main-color);
 }
 
-.options-form {
-
+form {
+  transition: 1s;
+  background-color: white;
+  border-radius: 1rem;
 }
+
 .options  {
   margin: 1rem 0;
   display: flex;
@@ -138,24 +185,31 @@ html {
   padding: 1rem;
   background-color: white;
 }
+
 .options legend {
+  top: 0;
   font-weight: bolder;
+  text-align: center;
   font-size: 1.1rem;
   margin: 0;
+  margin-bottom: -.5rem;
   border-radius: .3rem;
-  padding: .3rem .7rem ;
+  width: 100%;
   background-color: white;
   padding-bottom: 0;
 }
+
 .options input {
   margin: .3rem;
 }
+
 .option {
   display: flex;
   align-items: center;
 }
 
 .comparer-button {
+  top: 10px;
   font-weight: bold;
   transition: 500ms;
   background-color: rgb(255, 255, 255);
@@ -174,6 +228,7 @@ html {
 }
 
 .comparer-button--closed {
+  top: 10px;
   font-size: 1.2rem;
   font-weight: bolder;
   background-color: rgb(255, 255, 255);
@@ -186,7 +241,7 @@ html {
   border: solid black 2px;
   position: absolute;
   left: -45px;
-  transition: 500ms;
+  transition: 300ms;
   transform: rotate(calc(3turn + -90deg));
 }
 
@@ -194,12 +249,14 @@ html {
   padding: 0.5rem;
   right: 0;
   position: absolute;
-  transition: 300ms;
+  transition: 500ms;
   width: 20%;
   min-width: 200px;
   height: 100%;
-  background-color: rgb(142, 152, 173);
+  background-color: var(--main-color);
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.568);
 }
+
 .comparer-container--closed {
   padding: 0.5rem;
   right: 0;
@@ -208,22 +265,25 @@ html {
   width: 20%;
   min-width: 200px;
   height: 100%;
-  background-color: rgb(142, 152, 173);
-  transform: translateX(95%);
+  background-color: var(--main-color);
+  transform: translateX(100%);
 }
 
 .comparer-list::-webkit-scrollbar {
   border-color: transparent;
-  width: 10px;
+  width: 5px;
 }
+
 .comparer-list::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.432);
 }
+
 .comparer-list {
   height: 95%;
   overflow-y: overlay;
 }
+
 .comparer-car {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
@@ -235,8 +295,17 @@ html {
   flex-wrap: wrap;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 650px) {
   .comparer-button--closed {
+    top: 90%;
+  }
+  .options-button--closed {
+    top: 90%;
+  }
+  .comparer-button {
+    top: 90%;
+  }
+  .options-button {
     top: 90%;
   }
 }

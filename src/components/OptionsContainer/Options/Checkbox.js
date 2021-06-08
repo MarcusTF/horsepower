@@ -5,6 +5,7 @@ const Checkbox = ({ name, state, onChange }) => {
       type='checkbox'
       name={name}
       checked={state === name ? true : false}
+      style={{ cursor: "pointer" }}
     />
   )
 }

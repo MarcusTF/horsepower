@@ -10,7 +10,11 @@ const ComparerContainer = () => {
 
   return (
     <div className={`comparer-container${toggle}`}>
-      <button className={`comparer-button${toggle}`} onClick={toggleOpen}>
+      <button
+        title='Compare to other cars'
+        className={`comparer-button${toggle}`}
+        onClick={toggleOpen}
+      >
         {toggle === "" ? "+" : "V"}
       </button>
       <Filter />
