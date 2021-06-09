@@ -104,8 +104,6 @@ export default (state, action) => {
       }
     }
     case "OPTIONS": {
-      console.log(state.sidebarState.comparer)
-      console.log(state.sidebarState.options)
       return {
         ...state,
         sidebarState: {

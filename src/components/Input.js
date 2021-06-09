@@ -10,7 +10,6 @@ const Input = ({ type }) => {
 
   //Functions
   const inputHandler = e => {
-    console.log(e.target.name)
     setLastTouched(e.target.name)
     e.target.value = +e.target.value
     calculator(type, e.target.value)
