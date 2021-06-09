@@ -1,9 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default (state, action) => {
+  // I'm not writing action.payload every time. Thanks destructuring!
   const { payload } = action
   switch (action.type) {
+    // Calculates horsepower based on options selected.
     case "CALCULATE": {
-      let modifier
+      let modifier // this value is the number used to do the calculation, it's set based on the options.
       switch (state.drivetrainState.selected) {
         case "FWD": {
           switch (state.transmissionState.selected) {
@@ -16,7 +18,6 @@ export default (state, action) => {
             case "auto":
               modifier = 0.91
               break
-
             default:
               break
           }
@@ -33,7 +34,6 @@ export default (state, action) => {
             case "auto":
               modifier = 0.86
               break
-
             default:
               break
           }
@@ -56,11 +56,12 @@ export default (state, action) => {
           break
         }
         default: {
-          modifier = 0.91
+          modifier = 0.91 // if there's some kind of invalid input somehow, just use FWD Auto
           break
         }
       }
       switch (payload.type) {
+        // calculate the opposite field based on which field the input comes from.
         case "crank":
           return {
             ...state,
@@ -81,6 +82,7 @@ export default (state, action) => {
           return state
       }
     }
+    // these are all pretty straightforward setters.                   //
     case "FILTER": {
       return { ...state, filterState: { value: payload.filter } }
     }
@@ -93,6 +95,8 @@ export default (state, action) => {
     case "LAST_TOUCHED": {
       return { ...state, lastTouched: { field: payload.field } }
     }
+    //                                                                //
+    // These two check the width of the window and if it's less than 700 px, they close the opposite sidebar to avoid overlapping //
     case "COMPARER": {
       return {
         ...state,
@@ -113,6 +117,8 @@ export default (state, action) => {
         },
       }
     }
+    //                                                                                                                          //
+    // this just closed both the sidebars when called.
     case "CLOSE_SIDEBARS": {
       return {
         ...state,

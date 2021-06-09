@@ -4,7 +4,10 @@ import { GlobalContext } from "../Context/GlobalContext"
 import Input from "./Input"
 
 const InputContainer = ({ type }) => {
+  // context
   const { horsepower } = useContext(GlobalContext)
+
+  // variables for modifying the saturation and lightness of the input containers based on numbers input
   let saturation = horsepower.crank > 650 ? 75 : (horsepower.crank / 650) * 75
   let lightness =
     horsepower.crank < 650
@@ -20,6 +23,7 @@ const InputContainer = ({ type }) => {
           backgroundColor: `hsl(560,${saturation}%,${lightness}%)`,
           transition: "1.5s",
         }
+
   return (
     <div className={`${type}-container input-container`} style={style}>
       <Input type={type} />

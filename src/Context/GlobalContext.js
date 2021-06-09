@@ -1,7 +1,9 @@
 import React, { createContext, useReducer } from "react"
 import AppReducer from "./AppReducer"
 
+// STATE
 const initialState = {
+  // This contains all of the cars for the comparer sidebar.
   comparerState: [
     {
       make: "Chevrolet",
@@ -100,23 +102,29 @@ const initialState = {
       horsepower: 290,
     },
   ],
+  // monitors which input field the user last input into so that option changes reflect as the user would expect.
   lastTouched: {
     field: "crank",
   },
+  // manages the state of the side bars.
   sidebarState: {
     comparer: "--closed",
     options: "--closed",
   },
+  // horsepower values, either via user input or calculation
   horsepowerState: {
     crank: 0,
     wheel: 0,
   },
+  // the value the user has input into the filer bar in the comparer
   filterState: {
     value: "",
   },
+  // the selected drivetrain type
   drivetrainState: {
     selected: "FWD",
   },
+  // the selected transmission type
   transmissionState: {
     selected: "auto",
   },
@@ -127,7 +135,7 @@ export const GlobalContext = createContext(initialState)
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState)
 
-  //ACTIONS
+  //ACTIONS - see: AppReducer.js for explanations
   function calculator(type, value) {
     dispatch({
       type: "CALCULATE",

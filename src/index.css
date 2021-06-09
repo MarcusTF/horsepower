@@ -7,7 +7,41 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+*::-webkit-scrollbar {
+  border-color: transparent;
+  width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(138, 138, 138, 0.678);
+  background-blend-mode: overlay;
+}
+
+:root {
+  --main-color: #161616;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+.App,
+.main,
+#root,
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
 }

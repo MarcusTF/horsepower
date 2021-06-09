@@ -2,8 +2,10 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../../Context/GlobalContext'
 
 const Filter = () => {
+  //context
   const { filter, setFilter } = useContext(GlobalContext)
 
+  //functions
   const inputHandler = e => {
     setFilter(e.target.value)
   }
